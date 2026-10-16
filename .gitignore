@@ -1,0 +1,6 @@
+# this app's own state (flags/labels) is local, mutable data, not code
+store/*.csv
+store/*.json
+__pycache__/
+.venv/
+.DS_Store
