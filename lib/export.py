@@ -14,6 +14,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
+import streamlit as st
 
 from lib.data import EXPORT_DIR
 from lib.store import label_status, load_flags, load_labels, mark_exported
@@ -123,3 +124,21 @@ def build_export(flags_df=None):
 
     mark_exported(flags_df["flag_id"].tolist(), batch)
     return {"rows": len(rows), "batch": batch, "csv": str(out_csv), "cypher": str(out_cypher)}
+
+
+def download_buttons(result, key_prefix):
+    """Two real browser downloads for an export result (from build_export) — not just the server-side
+    path. Matters once deployed: the person clicking this is in a browser, not on the machine the
+    files are written to (local disk, or a mounted GCS path — see deploy/DEPLOY.md), so showing a
+    path alone gives them nothing they can actually use."""
+    csv_bytes = Path(result["csv"]).read_bytes()
+    cypher_bytes = Path(result["cypher"]).read_bytes()
+    c1, c2 = st.columns(2)
+    c1.download_button("Download flagged_behaviours.csv", csv_bytes, file_name="flagged_behaviours.csv",
+                       mime="text/csv", key=f"dl_csv_{key_prefix}")
+    c2.download_button("Download load_flagged_behaviours.cypher", cypher_bytes,
+                       file_name="load_flagged_behaviours.cypher", mime="text/plain",
+                       key=f"dl_cypher_{key_prefix}")
+    st.caption("Send these two files to the graph team, or drop the whole neo4j_export/s1/ folder — "
+               "load_flagged_behaviours.cypher is safe to re-run. flagged_behaviours.csv includes "
+               "every export made so far, not just this batch; MERGE makes re-loading it harmless.")

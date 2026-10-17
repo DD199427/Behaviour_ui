@@ -6,7 +6,7 @@ Flags for a 'candidate' behaviour are held back until it has enough corroboratin
 you explicitly choose to include them."""
 import streamlit as st
 
-from lib.export import all_pending_flags, build_export, pending_flags
+from lib.export import all_pending_flags, build_export, download_buttons, pending_flags
 from lib.store import label_progress, label_status, load_flags
 
 st.set_page_config(page_title="Review & Export", layout="wide")
@@ -48,16 +48,20 @@ if not held_back.empty:
 
 to_export = all_pending if include_candidates else ready
 st.divider()
-if to_export.empty:
+if to_export.empty and "last_export" not in st.session_state:
     st.info("Nothing to export right now.")
 else:
-    if st.button(f"Export {len(to_export)} flag(s) to Neo4j", type="primary"):
-        result = build_export(to_export)
+    if not to_export.empty and st.button(f"Export {len(to_export)} flag(s) to Neo4j", type="primary"):
+        st.session_state["last_export"] = build_export(to_export)
+        st.rerun()  # refresh the Ready/Awaiting tables above now that these flags are marked exported
+
+    if "last_export" in st.session_state:
+        result = st.session_state["last_export"]
         st.success(f"Wrote {result['rows']} rows (batch `{result['batch']}`).")
-        st.code(f"{result['csv']}\n{result['cypher']}")
-        st.caption("Send these two files to the graph team (or drop the whole "
-                   "neo4j_export/s1/ folder) — load_flagged_behaviours.cypher is safe to re-run.")
-        st.rerun()
+        download_buttons(result, key_prefix="review")
+        if st.button("Dismiss"):
+            del st.session_state["last_export"]
+            st.rerun()
 
 with st.expander("All flags (including already exported)"):
     st.dataframe(flags, width="stretch", hide_index=True)

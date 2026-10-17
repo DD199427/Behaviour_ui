@@ -10,7 +10,7 @@ import streamlit as st
 
 from lib import upload_scan
 from lib.data import load_transaction_vectors
-from lib.export import build_export
+from lib.export import build_export, download_buttons
 from lib.matching import MARGIN_THRESHOLD, batch_rank, custom_references, known_references
 from lib.store import append_flag, label_progress, label_status, load_flags, load_labels
 
@@ -159,9 +159,15 @@ else:
                    "Held back from export by default, same rule as Review & Export.")
         force = st.checkbox("Export anyway, even though it's still a candidate")
 
+    export_key = f"last_export_{behaviour}"
     if st.button(f"Push {behaviour} to Neo4j", type="primary", disabled=own_pending.empty or not force):
-        result = build_export(own_pending)
+        st.session_state[export_key] = build_export(own_pending)
+        st.rerun()  # refresh the pending count above now that these flags are marked exported
+
+    if export_key in st.session_state:
+        result = st.session_state[export_key]
         st.success(f"Wrote {result['rows']} rows (batch `{result['batch']}`).")
-        st.code(f"{result['csv']}\n{result['cypher']}")
-        st.caption("Send these files to the graph team — load_flagged_behaviours.cypher is safe to re-run.")
-        st.rerun()
+        download_buttons(result, key_prefix=f"scan_{behaviour}")
+        if st.button("Dismiss", key=f"dismiss_{behaviour}"):
+            del st.session_state[export_key]
+            st.rerun()
