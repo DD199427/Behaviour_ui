@@ -1,0 +1,1075 @@
+{
+ "schema": "s1",
+ "version": "v1",
+ "asof": "2026-09-30",
+ "scaling": "features with scaling 'robust': (x - center) / divisor (median / IQR); 'none': unchanged; all values clipped to [-10, 10]; masked values set to 0",
+ "mask": "1 = the feature could not be computed for this row (its value in the vector is 0)",
+ "settings": {
+  "hour_bands": [
+   "00_04",
+   "04_08",
+   "08_12",
+   "12_16",
+   "16_20",
+   "20_24"
+  ],
+  "recent_window_hours": 72,
+  "baseline_window_days_before": [
+   180,
+   7
+  ],
+  "min_baseline_tx": 10,
+  "far_percentile_of_own_history": 95,
+  "small_fraction_of_own_median": 0.1,
+  "cpp_window_days": 120,
+  "categories": [
+   "entertainment",
+   "food_dining",
+   "gas_transport",
+   "grocery_net",
+   "grocery_pos",
+   "health_fitness",
+   "home",
+   "kids_pets",
+   "misc_net",
+   "misc_pos",
+   "personal_care",
+   "shopping_net",
+   "shopping_pos",
+   "travel"
+  ]
+ },
+ "vectors": {
+  "account": {
+   "property": "bb_profile_vec",
+   "mask_property": "bb_profile_mask",
+   "dimensions": 31,
+   "uses_fraud_labels": false,
+   "features": [
+    {
+     "index": 0,
+     "name": "log_tx_per_active_day",
+     "group": "activity",
+     "description": "log1p(transactions per day with any activity)",
+     "scaling": "robust",
+     "center": 1.2807391224549258,
+     "divisor": 0.6265490732442267
+    },
+    {
+     "index": 1,
+     "name": "active_day_share",
+     "group": "activity",
+     "description": "days with activity / days from first transaction to as-of date",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 2,
+     "name": "weekend_share",
+     "group": "time",
+     "description": "share of transactions on Saturday or Sunday",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 3,
+     "name": "hour_00_04",
+     "group": "time",
+     "description": "share of transactions between 00:00 and 04:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 4,
+     "name": "hour_04_08",
+     "group": "time",
+     "description": "share of transactions between 04:00 and 08:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 5,
+     "name": "hour_08_12",
+     "group": "time",
+     "description": "share of transactions between 08:00 and 12:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 6,
+     "name": "hour_12_16",
+     "group": "time",
+     "description": "share of transactions between 12:00 and 16:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 7,
+     "name": "hour_16_20",
+     "group": "time",
+     "description": "share of transactions between 16:00 and 20:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 8,
+     "name": "hour_20_24",
+     "group": "time",
+     "description": "share of transactions between 20:00 and 24:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 9,
+     "name": "cat_entertainment",
+     "group": "category",
+     "description": "share of transactions in category entertainment",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 10,
+     "name": "cat_food_dining",
+     "group": "category",
+     "description": "share of transactions in category food_dining",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 11,
+     "name": "cat_gas_transport",
+     "group": "category",
+     "description": "share of transactions in category gas_transport",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 12,
+     "name": "cat_grocery_net",
+     "group": "category",
+     "description": "share of transactions in category grocery_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 13,
+     "name": "cat_grocery_pos",
+     "group": "category",
+     "description": "share of transactions in category grocery_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 14,
+     "name": "cat_health_fitness",
+     "group": "category",
+     "description": "share of transactions in category health_fitness",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 15,
+     "name": "cat_home",
+     "group": "category",
+     "description": "share of transactions in category home",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 16,
+     "name": "cat_kids_pets",
+     "group": "category",
+     "description": "share of transactions in category kids_pets",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 17,
+     "name": "cat_misc_net",
+     "group": "category",
+     "description": "share of transactions in category misc_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 18,
+     "name": "cat_misc_pos",
+     "group": "category",
+     "description": "share of transactions in category misc_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 19,
+     "name": "cat_personal_care",
+     "group": "category",
+     "description": "share of transactions in category personal_care",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 20,
+     "name": "cat_shopping_net",
+     "group": "category",
+     "description": "share of transactions in category shopping_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 21,
+     "name": "cat_shopping_pos",
+     "group": "category",
+     "description": "share of transactions in category shopping_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 22,
+     "name": "cat_travel",
+     "group": "category",
+     "description": "share of transactions in category travel",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 23,
+     "name": "online_share",
+     "group": "category",
+     "description": "share of transactions in online (*_net) categories",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 24,
+     "name": "log_amt_median",
+     "group": "amount",
+     "description": "log1p(median amount)",
+     "scaling": "robust",
+     "center": 3.8918202981106265,
+     "divisor": 0.31863083406894255
+    },
+    {
+     "index": 25,
+     "name": "log_amt_p90",
+     "group": "amount",
+     "description": "log1p(90th percentile amount)",
+     "scaling": "robust",
+     "center": 4.812346943780223,
+     "divisor": 0.22718565294931103
+    },
+    {
+     "index": 26,
+     "name": "amt_log_iqr",
+     "group": "amount",
+     "description": "log1p(p75 amount) - log1p(p25 amount)",
+     "scaling": "robust",
+     "center": 2.1006343878314753,
+     "divisor": 0.19936591755162203
+    },
+    {
+     "index": 27,
+     "name": "log_km_median",
+     "group": "location",
+     "description": "log1p(median km from home to merchant)",
+     "scaling": "robust",
+     "center": 4.3786763805799245,
+     "divisor": 0.05196622359255443
+    },
+    {
+     "index": 28,
+     "name": "log_km_p90",
+     "group": "location",
+     "description": "log1p(90th percentile km from home to merchant)",
+     "scaling": "robust",
+     "center": 4.737497978664583,
+     "divisor": 0.029740753544448495
+    },
+    {
+     "index": 29,
+     "name": "log_distinct_merchants",
+     "group": "variety",
+     "description": "log1p(number of distinct merchants)",
+     "scaling": "robust",
+     "center": 6.495265555937008,
+     "divisor": 0.22896598406564284
+    },
+    {
+     "index": 30,
+     "name": "log_history_days",
+     "group": "variety",
+     "description": "log1p(days from first transaction to as-of date)",
+     "scaling": "robust",
+     "center": 7.00033446027523,
+     "divisor": 0.1383656155400865
+    }
+   ]
+  },
+  "merchant": {
+   "property": "bb_merchant_vec",
+   "mask_property": "bb_merchant_mask",
+   "dimensions": 31,
+   "uses_fraud_labels": false,
+   "features": [
+    {
+     "index": 0,
+     "name": "is_entertainment",
+     "group": "category",
+     "description": "merchant category is entertainment",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 1,
+     "name": "is_food_dining",
+     "group": "category",
+     "description": "merchant category is food_dining",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 2,
+     "name": "is_gas_transport",
+     "group": "category",
+     "description": "merchant category is gas_transport",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 3,
+     "name": "is_grocery_net",
+     "group": "category",
+     "description": "merchant category is grocery_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 4,
+     "name": "is_grocery_pos",
+     "group": "category",
+     "description": "merchant category is grocery_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 5,
+     "name": "is_health_fitness",
+     "group": "category",
+     "description": "merchant category is health_fitness",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 6,
+     "name": "is_home",
+     "group": "category",
+     "description": "merchant category is home",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 7,
+     "name": "is_kids_pets",
+     "group": "category",
+     "description": "merchant category is kids_pets",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 8,
+     "name": "is_misc_net",
+     "group": "category",
+     "description": "merchant category is misc_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 9,
+     "name": "is_misc_pos",
+     "group": "category",
+     "description": "merchant category is misc_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 10,
+     "name": "is_personal_care",
+     "group": "category",
+     "description": "merchant category is personal_care",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 11,
+     "name": "is_shopping_net",
+     "group": "category",
+     "description": "merchant category is shopping_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 12,
+     "name": "is_shopping_pos",
+     "group": "category",
+     "description": "merchant category is shopping_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 13,
+     "name": "is_travel",
+     "group": "category",
+     "description": "merchant category is travel",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 14,
+     "name": "is_online",
+     "group": "category",
+     "description": "merchant category is online (*_net)",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 15,
+     "name": "log_cardholders",
+     "group": "reach",
+     "description": "log1p(distinct cards with a transaction here)",
+     "scaling": "robust",
+     "center": 8.988071438072634,
+     "divisor": 0.19158837312656551
+    },
+    {
+     "index": 16,
+     "name": "log_tx",
+     "group": "reach",
+     "description": "log1p(transactions here)",
+     "scaling": "robust",
+     "center": 10.507229584228375,
+     "divisor": 0.7034480311816473
+    },
+    {
+     "index": 17,
+     "name": "log_tx_per_cardholder",
+     "group": "reach",
+     "description": "log1p(transactions per distinct card)",
+     "scaling": "robust",
+     "center": 1.7086705009163232,
+     "divisor": 0.4176243646669584
+    },
+    {
+     "index": 18,
+     "name": "hour_00_04",
+     "group": "time",
+     "description": "share of transactions here between 00:00 and 04:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 19,
+     "name": "hour_04_08",
+     "group": "time",
+     "description": "share of transactions here between 04:00 and 08:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 20,
+     "name": "hour_08_12",
+     "group": "time",
+     "description": "share of transactions here between 08:00 and 12:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 21,
+     "name": "hour_12_16",
+     "group": "time",
+     "description": "share of transactions here between 12:00 and 16:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 22,
+     "name": "hour_16_20",
+     "group": "time",
+     "description": "share of transactions here between 16:00 and 20:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 23,
+     "name": "hour_20_24",
+     "group": "time",
+     "description": "share of transactions here between 20:00 and 24:00",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 24,
+     "name": "weekend_share",
+     "group": "time",
+     "description": "share of transactions on Saturday or Sunday",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 25,
+     "name": "log_amt_median",
+     "group": "amount",
+     "description": "log1p(median amount)",
+     "scaling": "robust",
+     "center": 3.5625,
+     "divisor": 0.5499999999999998
+    },
+    {
+     "index": 26,
+     "name": "amt_log_iqr",
+     "group": "amount",
+     "description": "log1p(p75 amount) - log1p(p25 amount)",
+     "scaling": "robust",
+     "center": 2.075,
+     "divisor": 1.1250000000000004
+    },
+    {
+     "index": 27,
+     "name": "log_km_median",
+     "group": "location",
+     "description": "log1p(median km from the cardholder home)",
+     "scaling": "robust",
+     "center": 4.3875,
+     "divisor": 0.3662981532789051
+    },
+    {
+     "index": 28,
+     "name": "beyond_usual_distance_share",
+     "group": "location",
+     "description": "share of transactions farther from home than the cardholder's own 95th-percentile distance",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 29,
+     "name": "active_day_share",
+     "group": "activity",
+     "description": "days with transactions / days from first transaction to as-of date",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 30,
+     "name": "log_recent_trend",
+     "group": "activity",
+     "description": "log1p(daily rate in the last 90 days / lifetime daily rate)",
+     "scaling": "robust",
+     "center": 0.0007285788561495113,
+     "divisor": 0.005717733461962397
+    }
+   ]
+  },
+  "merchant_cpp": {
+   "property": "bb_merchant_cpp_vec",
+   "mask_property": "bb_merchant_cpp_mask",
+   "dimensions": 3,
+   "uses_fraud_labels": true,
+   "features": [
+    {
+     "index": 0,
+     "name": "victim_visitor_share",
+     "group": "cpp",
+     "description": "share of distinct cards with a regular purchase here that had a fraud transaction within the cpp window after it",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 1,
+     "name": "log_victim_visitors",
+     "group": "cpp",
+     "description": "log1p(number of such cards)",
+     "scaling": "robust",
+     "center": 5.683579767338681,
+     "divisor": 2.6973262377392344
+    },
+    {
+     "index": 2,
+     "name": "log_median_days_to_fraud",
+     "group": "cpp",
+     "description": "log1p(median days from the visit here to the first later fraud)",
+     "scaling": "robust",
+     "center": 3.5777176786204166,
+     "divisor": 1.3776580642554555
+    }
+   ]
+  },
+  "transaction": {
+   "property": "bb_txn_vec",
+   "mask_property": "bb_txn_mask",
+   "dimensions": 46,
+   "uses_fraud_labels": false,
+   "features": [
+    {
+     "index": 0,
+     "name": "log_amt",
+     "group": "A_transaction",
+     "description": "log1p(amount)",
+     "scaling": "robust",
+     "center": 3.5533460588187404,
+     "divisor": 2.261441009351424
+    },
+    {
+     "index": 1,
+     "name": "amt_z_vs_baseline",
+     "group": "A_transaction",
+     "description": "z-score of log amount vs the baseline window",
+     "scaling": "robust",
+     "center": 0.06606710930626239,
+     "divisor": 1.6191310090462234
+    },
+    {
+     "index": 2,
+     "name": "tod_sin",
+     "group": "A_transaction",
+     "description": "time of day, sine",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 3,
+     "name": "tod_cos",
+     "group": "A_transaction",
+     "description": "time of day, cosine",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 4,
+     "name": "is_online",
+     "group": "A_transaction",
+     "description": "online (*_net) category",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 5,
+     "name": "category_new_vs_baseline",
+     "group": "A_transaction",
+     "description": "category not seen in the baseline window",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 6,
+     "name": "hour_rarity",
+     "group": "A_transaction",
+     "description": "1 - baseline share of the same 4-hour band",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 7,
+     "name": "log_km_home",
+     "group": "A_transaction",
+     "description": "log1p(km from home to merchant)",
+     "scaling": "robust",
+     "center": 4.380029885489085,
+     "divisor": 0.5699722523125468
+    },
+    {
+     "index": 8,
+     "name": "log_km_baseline_centroid",
+     "group": "A_transaction",
+     "description": "log1p(km from the centre of baseline merchant locations)",
+     "scaling": "robust",
+     "center": 4.384927548217062,
+     "divisor": 0.5733676274180715
+    },
+    {
+     "index": 9,
+     "name": "log_n_1h",
+     "group": "B_velocity",
+     "description": "log1p(transactions in the last hour, incl. this one)",
+     "scaling": "robust",
+     "center": 0.6931471805599453,
+     "divisor": 0.1776765380094248
+    },
+    {
+     "index": 10,
+     "name": "log_n_24h",
+     "group": "B_velocity",
+     "description": "log1p(transactions in the last 24 h, incl. this one)",
+     "scaling": "robust",
+     "center": 1.3862943611198906,
+     "divisor": 0.6931471805599452
+    },
+    {
+     "index": 11,
+     "name": "log_n_72h",
+     "group": "B_velocity",
+     "description": "log1p(transactions in the last 72 h, incl. this one)",
+     "scaling": "robust",
+     "center": 2.1972245773362196,
+     "divisor": 0.6931471805599454
+    },
+    {
+     "index": 12,
+     "name": "log_velocity_ratio_24h",
+     "group": "B_velocity",
+     "description": "log1p(24 h count / baseline daily rate)",
+     "scaling": "robust",
+     "center": 0.6448804395901108,
+     "divisor": 0.34215957862595997
+    },
+    {
+     "index": 13,
+     "name": "log_min_gap_min_recent",
+     "group": "B_velocity",
+     "description": "log1p(smallest gap in minutes between transactions in the last 72 h)",
+     "scaling": "robust",
+     "center": 3.418818983011975,
+     "divisor": 2.282548291939868
+    },
+    {
+     "index": 14,
+     "name": "log_median_gap_min_recent",
+     "group": "B_velocity",
+     "description": "log1p(median gap in minutes between transactions in the last 72 h)",
+     "scaling": "robust",
+     "center": 5.731843391782656,
+     "divisor": 1.7630457080657633
+    },
+    {
+     "index": 15,
+     "name": "log_spend_ratio_24h",
+     "group": "B_velocity",
+     "description": "log1p(24 h spend / baseline daily spend)",
+     "scaling": "robust",
+     "center": 0.4860006712279151,
+     "divisor": 0.5043265809626678
+    },
+    {
+     "index": 16,
+     "name": "log_n_small_6h_before",
+     "group": "B_velocity",
+     "description": "log1p(charges in the 6 h before this one below 10% of the card's baseline median amount)",
+     "scaling": "robust",
+     "center": 0.0,
+     "divisor": 0.215900342817629
+    },
+    {
+     "index": 17,
+     "name": "recent_cat_entertainment",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category entertainment",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 18,
+     "name": "recent_cat_food_dining",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category food_dining",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 19,
+     "name": "recent_cat_gas_transport",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category gas_transport",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 20,
+     "name": "recent_cat_grocery_net",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category grocery_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 21,
+     "name": "recent_cat_grocery_pos",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category grocery_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 22,
+     "name": "recent_cat_health_fitness",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category health_fitness",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 23,
+     "name": "recent_cat_home",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category home",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 24,
+     "name": "recent_cat_kids_pets",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category kids_pets",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 25,
+     "name": "recent_cat_misc_net",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category misc_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 26,
+     "name": "recent_cat_misc_pos",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category misc_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 27,
+     "name": "recent_cat_personal_care",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category personal_care",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 28,
+     "name": "recent_cat_shopping_net",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category shopping_net",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 29,
+     "name": "recent_cat_shopping_pos",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category shopping_pos",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 30,
+     "name": "recent_cat_travel",
+     "group": "C_recent_mix",
+     "description": "share of transactions in the last 72 h in category travel",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 31,
+     "name": "recent_online_share",
+     "group": "C_recent_mix",
+     "description": "online share in the last 72 h",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 32,
+     "name": "log_km_median_recent",
+     "group": "D_location",
+     "description": "log1p(median km from home, last 72 h)",
+     "scaling": "robust",
+     "center": 4.377964838532011,
+     "divisor": 0.2401024507210101
+    },
+    {
+     "index": 33,
+     "name": "log_km_max_recent",
+     "group": "D_location",
+     "description": "log1p(max km from home, last 72 h)",
+     "scaling": "robust",
+     "center": 4.751557981865498,
+     "divisor": 0.17284087171159168
+    },
+    {
+     "index": 34,
+     "name": "log_km_spread_recent",
+     "group": "D_location",
+     "description": "log1p(std of km from the centre of last-72 h merchant locations)",
+     "scaling": "robust",
+     "center": 3.298865561476512,
+     "divisor": 0.3947347378095234
+    },
+    {
+     "index": 35,
+     "name": "beyond_usual_distance_share_recent",
+     "group": "D_location",
+     "description": "share of last-72 h transactions farther from home than the card's baseline 95th-percentile distance",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 36,
+     "name": "log_speed_kmh_prev",
+     "group": "D_location",
+     "description": "log1p(km/h implied by the distance from the previous transaction)",
+     "scaling": "robust",
+     "center": 2.8612768732533613,
+     "divisor": 2.4141365995251878
+    },
+    {
+     "index": 37,
+     "name": "cat_mix_l1_vs_baseline",
+     "group": "E_change",
+     "description": "L1 distance between last-72 h and baseline category mix",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 38,
+     "name": "hour_mix_l1_vs_baseline",
+     "group": "E_change",
+     "description": "L1 distance between last-72 h and baseline mix of 4-hour bands",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 39,
+     "name": "recent_share_new_categories",
+     "group": "E_change",
+     "description": "share of last-72 h transactions in categories absent from the baseline",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 40,
+     "name": "log_ratio_amt_median_vs_baseline",
+     "group": "E_change",
+     "description": "log1p(median amount last 72 h) - log1p(median amount baseline)",
+     "scaling": "robust",
+     "center": -0.13101064941157436,
+     "divisor": 0.8915103914941918
+    },
+    {
+     "index": 41,
+     "name": "online_share_delta",
+     "group": "E_change",
+     "description": "online share last 72 h - baseline online share",
+     "scaling": "none",
+     "center": 0.0,
+     "divisor": 1.0
+    },
+    {
+     "index": 42,
+     "name": "log_ratio_km_median_vs_baseline",
+     "group": "E_change",
+     "description": "log1p(median km last 72 h) - log1p(median km baseline)",
+     "scaling": "robust",
+     "center": -0.0014905016085515754,
+     "divisor": 0.2352993918509163
+    },
+    {
+     "index": 43,
+     "name": "log_hours_since_prev",
+     "group": "F_activity",
+     "description": "log1p(hours since the previous transaction)",
+     "scaling": "robust",
+     "center": 1.7646356629390982,
+     "divisor": 2.0955054790642653
+    },
+    {
+     "index": 44,
+     "name": "age_years",
+     "group": "H_context",
+     "description": "cardholder age at the transaction",
+     "scaling": "robust",
+     "center": 40.903490759753595,
+     "divisor": 24.643394934976044
+    },
+    {
+     "index": 45,
+     "name": "log_city_pop",
+     "group": "H_context",
+     "description": "log1p(home city population)",
+     "scaling": "robust",
+     "center": 11.038078123869473,
+     "divisor": 2.5169912806844312
+    }
+   ]
+  }
+ }
+}

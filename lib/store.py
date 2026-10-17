@@ -8,6 +8,7 @@ A label is "promoted" (ready to export with confidence) once it has at least MIN
 from at least MIN_ENTITIES distinct entities — mirrors the threshold in the original plan.
 """
 import json
+import os
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,7 +17,11 @@ import pandas as pd
 
 from lib.knowledge import FRAUD_TYPE_NOTES
 
-STORE_DIR = Path(__file__).resolve().parent.parent / "store"
+# BB_STORE_ROOT overrides where flags/labels are read and written — unset locally (defaults to
+# exactly today's path), set to a mounted GCS path when deployed, so state survives restarts
+# (Cloud Run's local disk is ephemeral) — see deploy/DEPLOY.md
+STORE_DIR = (Path(os.environ["BB_STORE_ROOT"]) if os.environ.get("BB_STORE_ROOT")
+             else Path(__file__).resolve().parent.parent / "store")
 FLAGS_CSV = STORE_DIR / "flags.csv"
 LABELS_JSON = STORE_DIR / "labels.json"
 FLAGS_COLUMNS = ["flag_id", "ts", "user", "entity_type", "entity_id", "entity_category",

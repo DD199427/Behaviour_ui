@@ -2,15 +2,31 @@
 Outputs/ or neo4j_export/ — the only place this app writes to is behaviour-ui/store/ (see store.py)."""
 import gzip
 import json
+import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-BASE = Path(__file__).resolve().parent.parent.parent     # .../Sparkov
-DATA_DIR = BASE / "Outputs" / "fraud_poc_v2"
+BASE = Path(__file__).resolve().parent.parent.parent      # .../Sparkov (this developer's layout)
+APP_DIR = Path(__file__).resolve().parent.parent           # .../behaviour-ui
+_LOCAL_DEV_DATA = BASE / "Outputs" / "fraud_poc_v2"         # the full dataset, only present on this dev's Mac
+_BUNDLED_DATA = APP_DIR / "data"                            # small dataset shipped in the repo/image
+
+# Where the data folder is: BB_DATA_ROOT env var (e.g. a mounted GCS path) > the full local dev
+# dataset if it happens to exist (this dev's Mac) > the small bundled copy bundled with the app
+# (what anyone who just clones/deploys this repo gets). See deploy/DEPLOY.md.
+if os.environ.get("BB_DATA_ROOT"):
+    DATA_DIR = Path(os.environ["BB_DATA_ROOT"])
+elif _LOCAL_DEV_DATA.exists():
+    DATA_DIR = _LOCAL_DEV_DATA
+else:
+    DATA_DIR = _BUNDLED_DATA
 EXPORT_DIR = DATA_DIR / "neo4j_export" / "s1"
+# the bundled deployment doesn't include the 120 raw per-profile transaction files (~8 GB) — only
+# live_scan.py (Scan New Transactions) needs those; everything else works fine without them
+HAS_RAW_TRANSACTION_FILES = any(DATA_DIR.glob("*_[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9].csv"))
 
 
 @st.cache_data

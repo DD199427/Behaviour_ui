@@ -1,0 +1,175 @@
+merchant|category|channel|state|lat|long|active_from|active_to
+fraud_Rodriguez, Figueroa and Sanchez|shopping_net|fake_site||||2024-04-23|2024-05-30
+fraud_Mcclain, Miller and Henderson|misc_net|fake_site||||2024-12-04|2024-12-25
+fraud_Davis and Sons|shopping_net|fake_site||||2026-04-22|2026-05-09
+fraud_Guzman, Hoffman and Baldwin|shopping_net|fake_site||||2025-11-23|2025-12-20
+fraud_Gardner, Robinson and Lawrence|shopping_net|fake_site||||2024-04-28|2024-05-14
+fraud_Blake and Sons|shopping_net|fake_site||||2024-11-22|2024-12-22
+fraud_Henderson, Ramirez and Lewis|shopping_net|fake_site||||2025-10-24|2025-11-13
+fraud_Garcia-James|misc_net|fake_site||||2024-11-09|2024-12-07
+fraud_Abbott-Munoz|misc_net|fake_site||||2024-04-04|2024-05-12
+fraud_Blair PLC|shopping_net|fake_site||||2026-03-13|2026-04-09
+fraud_Dudley Group|misc_net|fake_site||||2025-01-07|2025-01-25
+fraud_Arnold Ltd|shopping_net|fake_site||||2026-05-19|2026-06-12
+fraud_Mcclure, Ward and Lee|shopping_net|fake_site||||2024-07-01|2024-07-27
+fraud_Williams and Sons|shopping_net|fake_site||||2025-03-31|2025-05-11
+fraud_Galloway-Wyatt|misc_net|fake_site||||2025-12-07|2025-12-29
+fraud_James Group|shopping_net|fake_site||||2026-04-15|2026-05-13
+fraud_Flowers, Martin and Kelly|shopping_net|fake_site||||2025-04-20|2025-05-06
+fraud_Adams, Zuniga and Wong|misc_net|fake_site||||2026-01-01|2026-02-03
+fraud_Reid, Ferguson and Sanchez|misc_net|fake_site||||2025-11-10|2025-11-30
+fraud_Gray-Mayo|shopping_net|fake_site||||2024-05-14|2024-06-18
+fraud_Watts, Robinson and Nguyen|shopping_net|fake_site||||2026-05-29|2026-06-21
+fraud_Perez Inc|shopping_net|fake_site||||2024-11-22|2025-01-02
+fraud_Morales-Jones|shopping_net|fake_site||||2025-04-22|2025-05-14
+fraud_Walter, Edwards and Rios|misc_net|fake_site||||2026-01-08|2026-02-17
+fraud_Wilkerson-Day|misc_net|fake_site||||2024-09-11|2024-10-06
+fraud_Baker and Sons|misc_net|fake_site||||2024-10-29|2024-12-03
+fraud_Hoffman, Baker and Richards|misc_net|fake_site||||2026-03-17|2026-04-21
+fraud_Ross, Robinson and Bright|shopping_net|fake_site||||2025-12-12|2026-01-15
+fraud_Snyder, Campos and Callahan|shopping_net|fake_site||||2025-09-26|2025-11-02
+fraud_Burton Ltd|shopping_net|fake_site||||2024-09-12|2024-10-10
+fraud_Carlson-Cruz|misc_net|fake_site||||2024-12-30|2025-02-02
+fraud_Ferrell, Rice and Maddox|shopping_net|fake_site||||2026-02-28|2026-03-24
+fraud_Frazier Inc|shopping_net|fake_site||||2024-11-18|2024-12-28
+fraud_Dyer, Potter and Mack|shopping_net|fake_site||||2025-02-15|2025-03-13
+fraud_Rodriguez-Graham|misc_net|fake_site||||2024-06-04|2024-06-24
+fraud_Smith-Bowen|misc_net|fake_site||||2024-11-01|2024-12-05
+fraud_Baker, Mason and White|misc_net|fake_site||||2025-05-08|2025-06-19
+fraud_Harrell LLC|misc_net|fake_site||||2024-08-22|2024-09-13
+fraud_Romero, Gonzalez and Brooks|shopping_net|fake_site||||2024-12-06|2025-01-12
+fraud_Ryan PLC|misc_net|fake_site||||2026-05-02|2026-06-03
+fraud_George Group|misc_net|fake_site||||2025-11-16|2025-12-12
+fraud_Rodriguez LLC|misc_net|fake_site||||2024-11-08|2024-11-26
+fraud_Allen-Allen|misc_net|fake_site||||2024-06-30|2024-08-07
+fraud_Arroyo, Miller and Tucker|shopping_net|fake_site||||2024-07-19|2024-08-06
+fraud_Spence PLC|shopping_net|fake_site||||2026-02-23|2026-03-22
+fraud_Anderson Group|shopping_net|fake_site||||2025-04-27|2025-05-23
+fraud_Martin, Rose and Obrien|misc_net|fake_site||||2025-09-21|2025-10-13
+fraud_Hickman Ltd|shopping_net|fake_site||||2026-02-23|2026-04-01
+fraud_Harris, Collins and Carney|shopping_net|fake_site||||2026-02-25|2026-04-08
+fraud_Brooks, Lam and Hayes|misc_net|fake_site||||2026-05-25|2026-06-28
+fraud_Walker LLC|misc_net|fake_site||||2024-07-21|2024-08-13
+fraud_Chapman and Sons|misc_net|fake_site||||2024-09-06|2024-10-04
+fraud_Robinson, Jones and Welch|shopping_net|fake_site||||2026-04-07|2026-05-19
+fraud_Jones Inc|misc_net|fake_site||||2025-08-23|2025-09-30
+fraud_Jones-Young|shopping_net|fake_site||||2025-08-30|2025-09-16
+fraud_Washington, Ryan and Cummings|misc_net|fake_site||||2026-01-12|2026-02-11
+fraud_Johnston, Sanchez and Kennedy|shopping_net|fake_site||||2024-09-01|2024-09-26
+fraud_Lee-Davis|shopping_net|fake_site||||2025-10-02|2025-11-09
+fraud_Gomez-Jenkins|shopping_net|fake_site||||2025-12-02|2025-12-26
+fraud_Brown, Valdez and Lucas|misc_net|fake_site||||2024-04-17|2024-05-04
+fraud_Powell LLC|misc_net|breached_site||||2025-02-06|2025-03-23
+fraud_Wright and Sons|shopping_net|breached_site||||2024-11-30|2025-02-24
+fraud_West, Henderson and Ramirez|grocery_net|breached_site||||2024-06-17|2024-07-22
+fraud_Baxter Inc|grocery_net|breached_site||||2025-08-08|2025-10-29
+fraud_Morton-Chase|shopping_net|breached_site||||2026-05-16|2026-07-19
+fraud_Williams PLC|shopping_net|breached_site||||2024-08-07|2024-10-18
+fraud_Novak and Sons|misc_net|breached_site||||2025-10-12|2025-11-21
+fraud_Russell Group|misc_net|breached_site||||2025-09-20|2025-12-14
+fraud_Hancock Inc|grocery_net|breached_site||||2025-06-05|2025-07-18
+fraud_Gray Group|grocery_net|breached_site||||2026-05-11|2026-07-26
+fraud_House-Glover|grocery_net|breached_site||||2024-10-20|2025-01-03
+fraud_Henderson-Bernard|misc_net|breached_site||||2025-05-11|2025-07-22
+fraud_Stanley, Tucker and Lee|gas_transport|skimmer|AK|64.894361|-147.851751|2024-12-07|2025-01-20
+fraud_Novak PLC|gas_transport|skimmer|AL|33.299003|-87.895108|2025-11-21|2026-01-04
+fraud_Daniels, Adkins and Brown|gas_transport|skimmer|AR|36.264084|-94.126813|2024-06-06|2024-09-01
+fraud_Woods, Calhoun and Schmidt|gas_transport|skimmer|AZ|33.388786|-111.873100|2026-02-12|2026-04-14
+fraud_Yu Inc|gas_transport|skimmer|CA|33.804035|-117.938362|2025-11-09|2026-01-08
+fraud_Hensley, Powell and David|gas_transport|skimmer|CO|39.789150|-104.948659|2024-07-06|2024-09-16
+fraud_Sanchez, Wheeler and Harvey|gas_transport|skimmer|CT|41.401058|-73.251798|2026-04-14|2026-05-17
+fraud_Sandoval-Cunningham|gas_transport|skimmer|DC|38.904662|-77.090070|2024-07-18|2024-09-01
+fraud_Donovan-Harris|gas_transport|skimmer|DE|39.822429|-75.542382|2024-10-02|2024-11-18
+fraud_Edwards, Baker and Anderson|gas_transport|skimmer|FL|30.198049|-85.691862|2025-10-13|2025-11-18
+fraud_Evans, Stewart and Walton|gas_transport|skimmer|GA|34.152900|-84.469063|2024-11-26|2025-01-05
+fraud_Smith PLC|gas_transport|skimmer|HI|21.297936|-157.807435|2024-05-28|2024-07-07
+fraud_Ferrell, Jones and Lewis|gas_transport|skimmer|IA|42.810031|-92.806480|2025-07-07|2025-08-24
+fraud_Anderson-Bailey|gas_transport|skimmer|ID|48.277480|-116.553529|2024-05-27|2024-08-02
+fraud_Suarez LLC|gas_transport|skimmer|IL|42.015698|-87.707183|2025-11-17|2026-01-16
+fraud_Moore-Bass|gas_transport|skimmer|IN|38.174588|-86.113717|2024-10-05|2024-11-08
+fraud_Turner, Riggs and Roman|gas_transport|skimmer|KS|39.120121|-95.131580|2024-07-29|2024-10-27
+fraud_Smith, Montoya and Evans|gas_transport|skimmer|KY|39.034092|-84.486826|2024-06-20|2024-08-15
+fraud_Garcia, Humphrey and Baker|gas_transport|skimmer|LA|32.575171|-92.205574|2026-04-01|2026-05-21
+fraud_Newton and Sons|gas_transport|skimmer|MA|42.083079|-71.388631|2025-01-30|2025-03-30
+fraud_Campbell-Clark|gas_transport|skimmer|MD|39.325532|-76.788084|2025-10-26|2025-12-01
+fraud_Harris-Walters|gas_transport|skimmer|ME|43.632388|-70.307654|2025-03-21|2025-06-15
+fraud_Wagner-King|gas_transport|skimmer|MI|43.588653|-85.478825|2025-10-06|2025-12-20
+fraud_Davis Group|gas_transport|skimmer|MN|43.949886|-93.948740|2026-02-06|2026-03-14
+fraud_Williams-Cook|gas_transport|skimmer|MO|38.636143|-90.413996|2025-10-16|2025-11-24
+fraud_Walsh LLC|gas_transport|skimmer|MS|32.384083|-88.721839|2024-10-23|2025-01-04
+fraud_Figueroa PLC|gas_transport|skimmer|MT|48.760512|-105.376184|2024-05-20|2024-06-24
+fraud_Patterson, Smith and Jones|gas_transport|skimmer|NC|35.302509|-83.219744|2024-08-09|2024-10-18
+fraud_Mckee, Gardner and Davenport|gas_transport|skimmer|ND|46.863523|-100.779132|2025-06-09|2025-08-13
+fraud_Tran, Jordan and Williams|gas_transport|skimmer|NE|40.879424|-98.302789|2024-08-28|2024-10-31
+fraud_Nolan-Flynn|gas_transport|skimmer|NH|42.731751|-71.524491|2024-08-06|2024-09-07
+fraud_Nolan and Sons|gas_transport|skimmer|NJ|40.825798|-74.227188|2024-05-08|2024-08-03
+fraud_Wright, Garcia and Deleon|gas_transport|skimmer|NM|35.613107|-105.210507|2025-03-26|2025-06-13
+fraud_Dickson-Brady|gas_transport|skimmer|NV|36.323884|-115.263552|2024-11-26|2025-02-19
+fraud_Hancock and Sons|gas_transport|skimmer|NY|40.717542|-74.048921|2026-04-22|2026-07-20
+fraud_Johnson-Doyle|gas_transport|skimmer|OH|40.548624|-81.197494|2024-12-08|2025-01-24
+fraud_Patton-Jenkins|gas_transport|skimmer|OK|36.724854|-95.971228|2025-07-23|2025-09-05
+fraud_Shields, Cochran and Adams|gas_transport|skimmer|OR|45.522266|-122.566646|2024-11-17|2024-12-31
+fraud_Rodriguez, Brennan and Garrison|gas_transport|skimmer|PA|40.001647|-75.256340|2024-06-08|2024-08-26
+fraud_Gonzalez Group|gas_transport|skimmer|RI|41.705548|-71.586832|2025-09-29|2025-11-19
+fraud_Torres-Pope|gas_transport|skimmer|SC|34.148004|-81.220478|2025-11-13|2025-12-29
+fraud_Walker Ltd|gas_transport|skimmer|SD|43.200657|-100.900431|2025-02-13|2025-04-11
+fraud_Ross LLC|gas_transport|skimmer|TN|36.095220|-86.766641|2024-12-14|2025-01-15
+fraud_Rasmussen LLC|gas_transport|skimmer|TX|29.685169|-95.369242|2025-10-01|2025-12-13
+fraud_May-Ross|gas_transport|skimmer|UT|40.643222|-111.933403|2026-02-07|2026-05-06
+fraud_Rivera, Johnson and Wiley|gas_transport|skimmer|VA|38.093739|-78.941037|2025-01-30|2025-04-02
+fraud_White-Estes|gas_transport|skimmer|VT|43.986518|-72.459579|2025-10-17|2025-11-24
+fraud_Johnson-Carlson|gas_transport|skimmer|WA|46.227393|-119.180085|2026-05-04|2026-07-30
+fraud_Chandler-Edwards|gas_transport|skimmer|WI|44.087708|-87.648927|2025-02-03|2025-03-23
+fraud_Joyce, Wilson and Lam|gas_transport|skimmer|WV|39.350576|-77.948134|2025-02-21|2025-04-21
+fraud_Scott Ltd|gas_transport|skimmer|WY|42.863363|-106.315483|2026-04-21|2026-05-31
+fraud_Smith-Frost|food_dining|rogue_employee|AK|67.011945|-146.400406|2025-03-07|2025-07-22
+fraud_Mcdaniel, Bentley and Mclaughlin|food_dining|rogue_employee|AL|30.805664|-88.123487|2024-04-23|2024-08-14
+fraud_Diaz Inc|food_dining|rogue_employee|AR|35.951427|-92.319051|2025-07-08|2026-05-06
+fraud_Mccall, Hanson and Alvarado|food_dining|rogue_employee|AZ|34.623735|-112.338002|2025-05-12|2025-12-12
+fraud_Cortez LLC|food_dining|rogue_employee|CA|34.153766|-118.156856|2024-07-16|2025-05-19
+fraud_Parker, Ortiz and Powell|food_dining|rogue_employee|CO|39.676711|-104.989609|2025-07-17|2025-11-09
+fraud_Spencer-Lee|food_dining|rogue_employee|CT|41.360147|-72.969664|2024-08-12|2025-07-05
+fraud_Bentley, Byrd and Orr|food_dining|rogue_employee|DC|38.935204|-76.898457|2025-12-16|2026-09-30
+fraud_Carroll, Sullivan and Bass|food_dining|rogue_employee|DE|39.777521|-75.525334|2025-07-28|2026-06-13
+fraud_Mitchell-Jordan|food_dining|rogue_employee|FL|30.184886|-82.988469|2025-09-13|2026-08-17
+fraud_Lawson, Morris and Ramos|food_dining|rogue_employee|GA|31.187187|-82.355246|2024-11-24|2025-07-11
+fraud_Lewis, Kennedy and Santana|food_dining|rogue_employee|HI|21.430103|-157.975142|2024-08-30|2025-03-26
+fraud_Jackson, Miller and Robertson|food_dining|rogue_employee|IA|41.203242|-92.353277|2025-05-20|2026-02-03
+fraud_Harvey, Davis and Crane|food_dining|rogue_employee|ID|43.130777|-115.725617|2025-06-02|2026-03-18
+fraud_Chambers and Sons|food_dining|rogue_employee|IL|38.649273|-88.742341|2025-04-22|2026-03-22
+fraud_Hernandez Inc|food_dining|rogue_employee|IN|38.277761|-86.964301|2025-06-01|2026-06-01
+fraud_Riggs PLC|food_dining|rogue_employee|KS|37.283323|-98.607506|2025-08-08|2025-11-20
+fraud_Gibson Ltd|food_dining|rogue_employee|KY|36.897487|-88.324986|2026-04-09|2026-09-30
+fraud_Lee, Horton and Snyder|food_dining|rogue_employee|LA|30.206272|-92.020188|2025-05-06|2025-08-17
+fraud_Hernandez Ltd|food_dining|rogue_employee|MA|41.816470|-71.152330|2024-05-19|2024-12-28
+fraud_Stafford Inc|food_dining|rogue_employee|MD|39.297666|-76.622115|2026-05-17|2026-09-30
+fraud_Robinson-Brock|food_dining|rogue_employee|ME|46.659427|-68.053609|2024-04-17|2024-08-11
+fraud_Holmes, Williams and Wright|food_dining|rogue_employee|MI|43.072814|-85.656377|2026-01-25|2026-05-15
+fraud_Bryant Group|food_dining|rogue_employee|MN|44.905536|-93.682062|2024-09-01|2025-04-01
+fraud_Schmidt, Hansen and Stewart|food_dining|rogue_employee|MO|38.489746|-90.521703|2024-11-07|2025-10-01
+fraud_Salazar-Ball|food_dining|rogue_employee|MS|32.493790|-90.141921|2025-12-10|2026-05-07
+fraud_Simmons, Meadows and Griffin|food_dining|rogue_employee|MT|47.455810|-111.297632|2025-02-11|2025-11-20
+fraud_Manning Group|food_dining|rogue_employee|NC|36.300800|-79.645139|2025-12-31|2026-08-02
+fraud_Green-Wright|food_dining|rogue_employee|ND|47.936029|-97.034559|2024-07-30|2024-11-18
+fraud_Ramirez, Strickland and Washington|food_dining|rogue_employee|NE|40.829452|-96.994404|2026-01-21|2026-09-30
+fraud_Hill Inc|food_dining|rogue_employee|NH|42.900033|-71.081446|2025-04-03|2026-02-22
+fraud_Mitchell, Nelson and Flores|food_dining|rogue_employee|NJ|40.668249|-74.200520|2026-01-24|2026-09-09
+fraud_Miller, Hernandez and Reyes|food_dining|rogue_employee|NM|32.312587|-106.766527|2025-11-25|2026-07-10
+fraud_Mccarthy Inc|food_dining|rogue_employee|NV|39.235573|-119.793934|2025-07-03|2026-02-02
+fraud_Russell-Daniels|food_dining|rogue_employee|NY|40.688540|-73.618169|2025-02-24|2025-08-26
+fraud_Brown-Wall|food_dining|rogue_employee|OH|41.335282|-83.142265|2025-01-09|2025-08-28
+fraud_Stein-Silva|food_dining|rogue_employee|OK|35.834663|-97.466894|2024-12-01|2025-09-25
+fraud_Smith, Gilmore and Johnston|food_dining|rogue_employee|OR|45.503061|-122.621910|2025-08-13|2026-06-28
+fraud_Smith-Bell|food_dining|rogue_employee|PA|40.431005|-80.115440|2026-03-07|2026-09-30
+fraud_Castaneda-Ashley|food_dining|rogue_employee|RI|41.893726|-71.517608|2025-06-07|2026-02-21
+fraud_Medina-Navarro|food_dining|rogue_employee|SC|35.007892|-81.414460|2024-07-30|2025-02-03
+fraud_Hurst, Freeman and Nelson|food_dining|rogue_employee|SD|43.575688|-96.692412|2026-03-05|2026-09-05
+fraud_Johnson-Rogers|food_dining|rogue_employee|TN|36.036560|-86.582350|2025-11-22|2026-09-30
+fraud_Yates, Ramsey and Pittman|food_dining|rogue_employee|TX|33.221351|-94.936237|2025-01-26|2025-08-20
+fraud_Hooper PLC|food_dining|rogue_employee|UT|40.677827|-112.016898|2024-08-05|2025-03-23
+fraud_Meadows PLC|food_dining|rogue_employee|VA|37.601036|-77.550658|2024-08-05|2025-07-12
+fraud_Alvarado, Miller and Patterson|food_dining|rogue_employee|VT|43.747806|-72.304660|2025-06-23|2026-03-14
+fraud_White-Green|food_dining|rogue_employee|WA|47.917148|-122.185628|2024-07-23|2024-11-23
+fraud_Lewis-Murphy|food_dining|rogue_employee|WI|43.698408|-87.711755|2024-05-22|2024-11-05
+fraud_Ramirez-Bean|food_dining|rogue_employee|WV|37.390818|-81.022581|2025-10-21|2026-08-20
+fraud_King-Miller|food_dining|rogue_employee|WY|43.480369|-110.751262|2025-06-25|2026-02-22

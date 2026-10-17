@@ -1,0 +1,7 @@
+# keep the image clean and start every deployment with empty flags/labels, not this dev's local test data
+.git/
+__pycache__/
+*.pyc
+.DS_Store
+store/*.csv
+store/*.json

@@ -1,68 +1,85 @@
 # Behaviour UI
 
-A small Streamlit app to show the fraud behaviours already known and discovered in the data,
-let a user flag cards / merchants / transactions with an existing or brand-new behaviour, and
-export those flags as a Neo4j-ready relationship CSV for the graph team.
+A Streamlit app to show the fraud behaviours already known and discovered in the Sparkov data,
+let a user flag cards / merchants / transactions with an existing or brand-new behaviour —
+including matching new transactions against behaviours automatically — and export confirmed flags
+as a Neo4j-ready relationship CSV for the graph team.
 
-It is **read-only** against `Outputs/fraud_poc_v2/` and `neo4j-behaviour-export/`'s output — the
-only thing it writes to is its own `store/` folder (and, when you export, two new files inside
-the existing `neo4j_export/s1/` folder).
+The small dataset it needs (~88 MB) ships in `data/`, so it runs standalone — no other part of
+this project needs to be present. It writes to its own `store/` folder (flags/labels) and, when
+you export, two files inside `data/neo4j_export/s1/`.
 
-## Setup
-
-```bash
-cd "Sparkov"
-.venv/bin/pip install -r behaviour-ui/requirements.txt
-```
-
-## Run
+## Run locally
 
 ```bash
-cd behaviour-ui
-"../.venv/bin/streamlit" run app.py
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-Needs `Outputs/fraud_poc_v2/neo4j_export/s1/` to already exist — build it first with
-`neo4j-behaviour-export/build_behaviour_vectors.py` and `build_behaviour_map.py`.
+(If you're working inside the wider Sparkov project this was built in, `../.venv/bin/streamlit run app.py`
+from this folder uses that shared virtualenv instead.)
+
+## Deploy
+
+See **[deploy/DEPLOY.md](deploy/DEPLOY.md)** — `gcloud run deploy --source .` from this folder,
+works immediately using the bundled dataset.
 
 ## Pages
 
 | Page | What it does |
 |---|---|
-| **Behaviour Library** | The 6 known fraud types (from `fraud_events.csv`), the unsupervised groups found in the vectors (from `behaviour_map.csv`), and any custom behaviours your team has named |
-| **Investigate & Flag** | Look up an account, merchant or transaction: what's unusual about it, its discovered group, its most similar neighbours, and a form to flag it with an existing label or a new one |
-| **Review & Export** | Every flag made so far, and a button to push the ones not yet sent to Neo4j |
+| **Behaviour Library** | The 6 known fraud types, the unsupervised groups found in the vectors, and any custom behaviours your team has named — each with a plain-English description, and a way to propose a discovered group as a new behaviour |
+| **Investigate & Flag** | Look up an account, merchant or transaction: what's unusual about it, its discovered group, its closest matching behaviour, and a form to flag it |
+| **Triage Queue** | Every transaction in the bundled dataset, automatically matched against known and custom behaviours, excluding anything already flagged — a starting point for review, never an auto-flag |
+| **Scan a Behaviour** | Pick one custom behaviour, scan all transactions against just it, bulk-confirm matches, push straight to Neo4j |
+| **Scan New Transactions** | Check one account's activity beyond the bundled dataset, computed on the fly from the full raw data (if present — see DEPLOY.md) |
+| **Review & Export** | Every flag made so far, held back from export unless its behaviour is confirmed (active) or you explicitly override that, pushed to Neo4j on demand |
+
+## How matching works
+
+Each of the 6 known fraud types, plus "normal spending," has a prototype vector
+(`data/neo4j_export/s1/fraud_type_prototypes.json`, built once from confirmed examples). A custom
+behaviour gets its own prototype automatically, built live from whichever of its flags are on
+transactions — no behaviour is scannable until it has at least one. Matching is cosine similarity
+against these prototypes: a ranking signal, not a calibrated probability, and it **never creates a
+flag by itself** — every flag in this app comes from a person reviewing and confirming a match.
 
 ## Where flags live
 
 `store/flags.csv` (one row per flag, append-only) and `store/labels.json` (one entry per custom
 behaviour, with a `status` of `candidate` until it has at least 5 flags from at least 3 distinct
-entities, then `active`). Both are plain files local to this app — back them up like any other
-data you care about; they are gitignored, same as the rest of this repo's data.
+entities, then `active`). Both are gitignored — local state, not code. **On Cloud Run specifically,
+this is on ephemeral disk by default and will not survive a restart** — see Part 2 of DEPLOY.md.
 
 ## Exporting to Neo4j
 
-"Export pending flags" on the Review & Export page writes, into the **same**
-`neo4j_export/s1/` folder the graph team already has:
+"Export" (on Review & Export, or per-behaviour on Scan a Behaviour) writes into
+`data/neo4j_export/s1/`:
 
 - `flagged_behaviours.csv` — one row per flag: `(:Account|Merchant|Transaction)-[:FLAGGED_AS]->(:BehaviourLabel)`
 - `load_flagged_behaviours.cypher` — loads it; `MERGE`s everything, so re-running is safe
 
-Same column shape and loading pattern as `behaviour_map.csv` / `load_behaviour_map.cypher` from
-`neo4j-behaviour-export`, so send the whole `neo4j_export/s1/` folder (or just the two new files
-if they've already loaded the rest).
+Only flags for a known type or an *active* (corroborated) custom behaviour export by default;
+unconfirmed ones are held back, with an explicit override if you want them anyway. Same column
+shape and loading pattern as `behaviour_map.csv` / `load_behaviour_map.cypher`, generated by the
+sibling `neo4j-behaviour-export` tool that originally built this dataset — send the whole
+`neo4j_export/s1/` folder, or just the new files if the rest is already loaded.
 
 Node labels and ID properties (`Account.account_id`, `Merchant.name`+`category`,
 `Transaction.txn_id`) are set at the top of `lib/export.py` — keep them matching whatever the
 graph team used when they loaded the vectors.
 
-## Limits of this first version
+## Limits
 
-- **Transaction lookup only covers whatever date range was exported** (currently January 2025).
-  Account and merchant lookups cover the full history.
+- **The bundled dataset covers transactions through January 2025 only** (Account and Merchant
+  lookups cover the full history they were built from). Scan New Transactions reaches further,
+  but only if the full raw dataset is present (see DEPLOY.md) — a few hundred MB per account
+  looked up, not loaded in bulk.
 - **"What stands out" ranks features by the size of their already-scaled vector value.** For
   `robust`-scaled features this is a real deviation from the population; for shares and flags
-  (`scaling: none`) it just shows the raw value. Good enough to spot the obvious outliers, not a
-  substitute for the full root-cause scoring in the original plan.
-- **No login, no multi-user locking.** Fine for one team working together; `store/flags.csv` is a
-  single shared file.
+  (`scaling: none`) it just shows the raw value.
+- **No login, no multi-user locking.** Fine for one team working together; `flags.csv` is a single
+  shared file.
+- **Matching confidence doesn't self-calibrate.** The default similarity threshold was chosen once
+  against this dataset's hidden ground truth (see `lib/matching.py`); there's no live ground truth
+  for it to adapt to as new data arrives.
