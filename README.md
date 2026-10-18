@@ -9,6 +9,8 @@ The small dataset it needs (~88 MB) ships in `data/`, so it runs standalone — 
 this project needs to be present. It writes to its own `store/` folder (flags/labels) and, when
 you export, two files inside `data/neo4j_export/s1/`.
 
+The prototype performance report is in [PROTOTYPE_REPORT.md](PROTOTYPE_REPORT.md).
+
 
 ## Non_Fraud desk
 
