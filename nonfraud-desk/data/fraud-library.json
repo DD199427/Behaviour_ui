@@ -1,0 +1,60 @@
+{
+  "events": 2144,
+  "types": [
+    {
+      "id": "phishing_fake_site",
+      "enteredBy": "cardholder",
+      "events": 599,
+      "medianDelayDays": 1,
+      "medianDurationDays": 4,
+      "medianLoss": 6484.93,
+      "totalLoss": 4336718.51
+    },
+    {
+      "id": "breached_online_store",
+      "enteredBy": "cardholder",
+      "events": 399,
+      "medianDelayDays": 50,
+      "medianDurationDays": 5,
+      "medianLoss": 7335.56,
+      "totalLoss": 3119571.98
+    },
+    {
+      "id": "skimmer_cloned_card",
+      "enteredBy": "cardholder",
+      "events": 326,
+      "medianDelayDays": 12,
+      "medianDurationDays": 4,
+      "medianLoss": 5074.0,
+      "totalLoss": 1870196.28
+    },
+    {
+      "id": "rogue_employee",
+      "enteredBy": "other_user",
+      "events": 190,
+      "medianDelayDays": 8,
+      "medianDurationDays": 5,
+      "medianLoss": 3312.61,
+      "totalLoss": 706441.36
+    },
+    {
+      "id": "lost_stolen_card",
+      "enteredBy": "other_user",
+      "events": 287,
+      "medianDelayDays": 0,
+      "medianDurationDays": 3,
+      "medianLoss": 1810.08,
+      "totalLoss": 569575.82
+    },
+    {
+      "id": "friendly_family",
+      "enteredBy": "other_user",
+      "events": 343,
+      "medianDelayDays": 0,
+      "medianDurationDays": 29,
+      "medianLoss": 1090.71,
+      "totalLoss": 376687.2
+    }
+  ],
+  "source": "Sparkov generator fraud_events.csv, via the Behaviour UI bundle"
+}

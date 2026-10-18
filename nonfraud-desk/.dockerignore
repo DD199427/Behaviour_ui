@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+uploads
+agent-tools
+.env
+.env.local
+*.md
+!README.md

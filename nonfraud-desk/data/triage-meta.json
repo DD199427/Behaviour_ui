@@ -1,0 +1,28 @@
+{
+  "scanned": 490407,
+  "skipped": 0,
+  "floor": 0.2,
+  "aboveFloor": 43285,
+  "above": {
+    "0.20": 43285,
+    "0.35": 10793,
+    "0.50": 3113,
+    "0.80": 1832
+  },
+  "byTypeAtFloor": {
+    "breached_online_store": 3088,
+    "friendly_family": 16083,
+    "lost_stolen_card": 5297,
+    "phishing_fake_site": 849,
+    "rogue_employee": 15955,
+    "skimmer_cloned_card": 2013
+  },
+  "range": [
+    "2025-01-01",
+    "2025-01-31"
+  ],
+  "schema": "s1",
+  "version": "v1",
+  "asof": "2026-09-30",
+  "method": "cosine similarity of unit-normalised bb_txn_vec against fraud_type_prototypes.json; margin is the best generator type minus normal"
+}
