@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nonfraud
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: behaviour-desk
+  namespace: nonfraud
+  labels:
+    app: behaviour-desk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: behaviour-desk
+  template:
+    metadata:
+      labels:
+        app: behaviour-desk
+    spec:
+      containers:
+        - name: desk
+          # Build on the machine that has the cluster, then import into k3s.
+          # k3s:  docker build -t nonfraud-desk:local . && docker save nonfraud-desk:local | sudo k3s ctr images import -
+          # k3d:  k3d image import nonfraud-desk:local -c <cluster>
+          image: nonfraud-desk:local
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HOSTNAME
+              value: 0.0.0.0
+            - name: PORT
+              value: "8080"
+          resources:
+            requests:
+              cpu: 50m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 768Mi
+          readinessProbe:
+            httpGet:
+              path: /api/meta
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/meta
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: behaviour-desk
+  namespace: nonfraud
+spec:
+  selector:
+    app: behaviour-desk
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: behaviour-desk
+  namespace: nonfraud
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - host: nonfraud.desk.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: behaviour-desk
+                port:
+                  number: 80

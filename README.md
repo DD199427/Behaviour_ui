@@ -9,6 +9,17 @@ The small dataset it needs (~88 MB) ships in `data/`, so it runs standalone — 
 this project needs to be present. It writes to its own `store/` folder (flags/labels) and, when
 you export, two files inside `data/neo4j_export/s1/`.
 
+
+## Non_Fraud desk
+
+The Next.js investigator desk is in [`nonfraud-desk/`](nonfraud-desk/). `POST /api/scan` scans January transactions for a proposed behaviour and returns `flagged_behaviours.csv` plus `load_flagged_behaviours.cypher` for Neo4j.
+
+```bash
+cd nonfraud-desk
+npm install
+npm run local
+```
+
 ## Run locally
 
 ```bash
